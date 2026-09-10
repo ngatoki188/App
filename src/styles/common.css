@@ -1,0 +1,126 @@
+/* =========================================================
+   BỘ CSS DÙNG CHUNG CHO DỰ ÁN (COMMON DESIGN SYSTEM)
+   Dùng xuyên suốt cho tất cả màn hình: Web & Mobile
+   ========================================================= */
+
+@layer components {
+  /* Khung ứng dụng chính (Layout Container) */
+  .app-viewport {
+    @apply min-h-screen bg-[#F8FAFC] text-slate-900 font-sans antialiased flex flex-col justify-between selection:bg-brand-100 selection:text-brand-primary;
+  }
+
+  /* Khung nội dung tối ưu cho Mobile & Responsive Desktop */
+  .mobile-container {
+    @apply w-full max-w-md mx-auto min-h-screen bg-white shadow-xl md:shadow-2xl border-x border-slate-100 flex flex-col relative;
+  }
+
+  .desktop-fluid-container {
+    @apply w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6;
+  }
+
+  /* Tiêu đề màn hình (Screen Titles) */
+  .screen-header-greeting {
+    @apply text-xs md:text-sm font-medium text-slate-500 tracking-wide;
+  }
+
+  .screen-header-title {
+    @apply text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight;
+  }
+
+  .section-title {
+    @apply text-lg md:text-xl font-bold text-slate-900 tracking-tight;
+  }
+
+  .section-link {
+    @apply text-sm font-medium text-brand-primary hover:text-brand-dark transition-colors duration-150 cursor-pointer select-none;
+  }
+
+  /* Thẻ hiển thị chuẩn (Cards) */
+  .app-card {
+    @apply bg-white border border-slate-100 rounded-2xl p-4 shadow-soft transition-all duration-200;
+  }
+
+  .app-card-interactive {
+    @apply app-card hover:border-slate-200 hover:shadow-md cursor-pointer active:scale-[0.99];
+  }
+
+  .app-card-live {
+    @apply bg-[#FFF5EE] border border-orange-200/80 rounded-2xl p-4 transition-all duration-200 shadow-soft;
+  }
+
+  .app-stat-box {
+    @apply bg-white border border-slate-100 rounded-2xl p-3.5 flex flex-col justify-center shadow-soft;
+  }
+
+  /* Nút bấm chuẩn (Buttons) */
+  .btn-brand {
+    @apply inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-full bg-brand-primary hover:bg-brand-accent active:bg-brand-dark text-white font-semibold text-sm shadow-pop transition-all duration-150 active:scale-95 cursor-pointer select-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-medium text-sm transition-all duration-150 cursor-pointer select-none;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-full border border-slate-200 bg-white hover:bg-slate-50 text-slate-700 font-medium text-sm transition-all duration-150 cursor-pointer select-none;
+  }
+
+  /* Huy hiệu trạng thái (Badges) */
+  .badge-live-pulse {
+    @apply inline-flex items-center gap-1.5 text-xs font-bold text-brand-primary tracking-wide uppercase;
+  }
+
+  .badge-pill {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+
+  /* Hàng danh sách (List Items) */
+  .list-card-item {
+    @apply bg-white border border-slate-100 hover:border-slate-200 rounded-2xl p-4 flex items-center justify-between shadow-soft transition-all duration-150 cursor-pointer;
+  }
+
+  /* Thanh điều hướng dưới cùng (Bottom Navigation) */
+  .bottom-nav-bar {
+    @apply fixed md:sticky bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200/80 max-w-md mx-auto w-full px-2 py-2 flex items-center justify-around shadow-nav;
+  }
+
+  .bottom-nav-item {
+    @apply flex flex-col items-center justify-center gap-1 py-1 px-3 text-slate-500 hover:text-slate-800 transition-colors duration-150 cursor-pointer select-none relative text-[11px] font-medium;
+  }
+
+  .bottom-nav-item-active {
+    @apply text-brand-primary font-bold;
+  }
+}
+
+/* Hiệu ứng nhấp nháy cho đèn Live */
+@keyframes live-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(0.85);
+  }
+}
+
+.animate-live-dot {
+  animation: live-dot 1.4s ease-in-out infinite;
+}
+
+/* Thanh cuộn mềm mại */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
